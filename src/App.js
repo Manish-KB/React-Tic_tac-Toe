@@ -1,4 +1,9 @@
 import { useState } from "react";
+import Button from '@mui/material/Button';
+import * as React from 'react';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+
 
 function Square({ value, onSquareClick }) {
   return (
@@ -6,7 +11,16 @@ function Square({ value, onSquareClick }) {
       {value}
     </button>
   );
-}
+};
+function GButton(){
+  return (
+   <>
+<Button variant="text">Text</Button>
+
+</>
+
+  );
+};
 
 
 export default function Board() {
@@ -33,6 +47,7 @@ export default function Board() {
   }
   return (
     <>
+   <div>
     <div className='status'>{status}</div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
@@ -49,9 +64,13 @@ export default function Board() {
         <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
+    </div>
+   
     </>
+    
   );
 }
+
 
 function calculateWinner(squares) {
   const lines = [
